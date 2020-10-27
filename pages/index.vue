@@ -11,7 +11,7 @@
           Post Here
         </h2>
         <p class="mt-4 text-lg leading-6 text-gray-500">
-          Enter in a peice of text to find out which subreddit to post it in.
+          Enter in a piece of text to find out which subreddit to post it in.
         </p>
       </div>
       <div class="mt-12">
@@ -19,8 +19,7 @@
           <transition name="fade">
             <div
               v-show="!modelLoaded"
-              class="bg-gray-50 absolute rounded shadow-2xl h-full w-full z-10 justify-center items-center flex"
-              style="--bg-opacity: 0.97"
+              class="bg-gray-200 absolute rounded shadow-2xl h-full w-full z-10 justify-center items-center flex flex-col"
             >
               <button
                 :disabled="loadingModel"
@@ -31,6 +30,9 @@
                 <loading v-if="loadingModel" />
                 <template v-else> Load Model </template>
               </button>
+              <div class="mt-4 text-gray-500 font-medium text-sm">
+                May take ~1 minute.
+              </div>
             </div>
           </transition>
           <div>
@@ -52,7 +54,7 @@
                     id="text"
                     v-model="text"
                     rows="8"
-                    class="form-textarea py-3 px-4 block w-full transition ease-in-out duration-150"
+                    class="form-textarea py-3 px-4 block w-full transition border-gray-200 ease-in-out duration-150"
                   ></textarea>
                 </div>
               </div>
@@ -191,6 +193,8 @@ export default {
       loadingModel: false,
       modelError: '',
       modelLoaded: false,
+      timesLoaded: 1,
+      inverval: false,
     }
   },
   methods: {
@@ -211,10 +215,14 @@ export default {
         this.modelError = 'Error Loading Model'
       }
 
-      setInterval(this.loadModelInBackground, 300000)
+      this.interval = setInterval(this.loadModelInBackground, 600000)
     },
     async loadModelInBackground() {
       await this.$axios.get('https://post-here.azurewebsites.net/api/post-here')
+      this.timesLoaded += 1
+      if (this.timesLoaded >= 2) {
+        clearInterval(this.interval)
+      }
     },
     async getPreds() {
       const options = {
@@ -230,7 +238,7 @@ export default {
         'https://post-here.azurewebsites.net/api/post-here',
         {
           text: this.text.split(' ').slice(0, 512).join(' '),
-          k: 10,
+          k: 16,
         }
       )
       const predsUrls = preds[0].map((pred) =>
