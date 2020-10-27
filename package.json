@@ -16,8 +16,10 @@
     "@nuxtjs/proxy": "^2.0.1",
     "@tailwindcss/ui": "^0.6.2",
     "core-js": "^3.6.5",
+    "he": "^1.2.0",
     "nuxt": "^2.14.6",
-    "tailwindcss": "^1.9.6"
+    "tailwindcss": "^1.9.6",
+    "vue-scrollto": "^2.19.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",

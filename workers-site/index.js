@@ -1,4 +1,4 @@
-import { getAssetFromKV, mapRequestToAsset } from '@cloudflare/kv-asset-handler'
+import { getAssetFromKV } from '@cloudflare/kv-asset-handler'
 
 /**
  * The DEBUG flag will do two things that help during development:
@@ -9,7 +9,7 @@ import { getAssetFromKV, mapRequestToAsset } from '@cloudflare/kv-asset-handler'
  */
 const DEBUG = false
 
-addEventListener('fetch', event => {
+addEventListener('fetch', (event) => {
   try {
     event.respondWith(handleEvent(event))
   } catch (e) {
@@ -17,7 +17,7 @@ addEventListener('fetch', event => {
       return event.respondWith(
         new Response(e.message || e.toString(), {
           status: 500,
-        }),
+        })
       )
     }
     event.respondWith(new Response('Internal Error', { status: 500 }))
@@ -25,9 +25,12 @@ addEventListener('fetch', event => {
 })
 
 async function handleEvent(event) {
-  const url = new URL(event.request.url)
-  let options = {}
-
+  const options = {}
+  const urlPathname = new URL(event.request.url).pathname
+  if (urlPathname.split('/')[1] === 'r') {
+    const resp = await fetch(`https://reddit.com/${urlPathname}/about.json`)
+    return resp
+  }
   /**
    * You can add custom logic to how we fetch your assets
    * by configuring the function `mapRequestToAsset`
@@ -46,11 +49,15 @@ async function handleEvent(event) {
     // if an error is thrown try to serve the asset at 404.html
     if (!DEBUG) {
       try {
-        let notFoundResponse = await getAssetFromKV(event, {
-          mapRequestToAsset: req => new Request(`${new URL(req.url).origin}/404.html`, req),
+        const notFoundResponse = await getAssetFromKV(event, {
+          mapRequestToAsset: (req) =>
+            new Request(`${new URL(req.url).origin}/404.html`, req),
         })
 
-        return new Response(notFoundResponse.body, { ...notFoundResponse, status: 404 })
+        return new Response(notFoundResponse.body, {
+          ...notFoundResponse,
+          status: 404,
+        })
       } catch (e) {}
     }
 
@@ -65,16 +72,16 @@ async function handleEvent(event) {
  * route on a zone, or if you only want your static content
  * to exist at a specific path.
  */
-function handlePrefix(prefix) {
-  return request => {
-    // compute the default (e.g. / -> index.html)
-    let defaultAssetKey = mapRequestToAsset(request)
-    let url = new URL(defaultAssetKey.url)
+// function handlePrefix(prefix) {
+//   return (request) => {
+//     // compute the default (e.g. / -> index.html)
+//     const defaultAssetKey = mapRequestToAsset(request)
+//     const url = new URL(defaultAssetKey.url)
 
-    // strip the prefix from the path for lookup
-    url.pathname = url.pathname.replace(prefix, '/')
+//     // strip the prefix from the path for lookup
+//     url.pathname = url.pathname.replace(prefix, '/')
 
-    // inherit all other props from the default request
-    return new Request(url.toString(), defaultAssetKey)
-  }
-}
+//     // inherit all other props from the default request
+//     return new Request(url.toString(), defaultAssetKey)
+//   }
+// }
