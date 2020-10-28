@@ -10,15 +10,15 @@
                 <div v-if="$route.name === 'index'" key="about">
                   <nuxt-link
                     to="/about"
-                    class="px-3 py-2 rounded-md text-sm text-gray-500 font-bold hover:text-gray-900 focus:outline-none"
-                    >About</nuxt-link
+                    class="px-3 py-2 rounded-md text-sm text-gray-900 font-extrabold hover:underline focus:outline-none"
+                    >ABOUT</nuxt-link
                   >
                 </div>
                 <div v-else key="home">
                   <nuxt-link
                     to="/"
-                    class="px-3 py-2 rounded-md text-sm text-gray-500 font-bold hover:text-gray-900 focus:outline-none"
-                    >Home</nuxt-link
+                    class="px-3 py-2 rounded-md text-sm text-gray-900 font-extrabold hover:underline focus:outline-none"
+                    >HOME</nuxt-link
                   >
                 </div>
               </transition>
