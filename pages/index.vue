@@ -19,7 +19,7 @@
           <transition name="fade">
             <div
               v-show="!modelLoaded"
-              class="bg-gray-200 absolute rounded shadow-2xl h-full w-full z-10 justify-center items-center flex flex-col"
+              class="bg-gray-200 absolute rounded-lg shadow-2xl h-full w-full z-10 justify-center items-center flex flex-col"
             >
               <button
                 :disabled="loadingModel"
@@ -193,7 +193,7 @@ export default {
       loadingModel: false,
       modelError: '',
       modelLoaded: false,
-      timesLoaded: 1,
+      timesLoaded: 0,
       inverval: false,
     }
   },
