@@ -13,7 +13,7 @@
           >Spencer Adams</a
         >
       </div>
-      <div class="p-4 sm:text-center text-left">
+      <div class="p-4 text-lg sm:text-center text-left text-gray-500">
         Post-Here.com uses a DistilBERT classification model and ~1,000,000
         posts mined from ~5,000 subreddits. The front end uses Nuxt and tailwind
         UI and is deployed as a static site to Cloudflare using Cloudflare
@@ -26,14 +26,14 @@
         <ul class="ml-4">
           <li>
             <a
-              class="text-blue-400 font-bold hover:text-blue-600 hover:underline"
+              class="text-blue-400 text-lg font-bold hover:text-blue-600 hover:underline"
               href="https://github.com/spentaur/post-here-fe"
               >Front End</a
             >
           </li>
           <li>
             <a
-              class="text-blue-400 font-bold hover:text-blue-600 hover:underline"
+              class="text-blue-400 text-lg font-bold hover:text-blue-600 hover:underline"
               href="https://github.com/spentaur/post-here-function"
               >Model Deployment</a
             >
@@ -41,13 +41,34 @@
         </ul>
       </div>
       <div>
-        <div class="border-t-2 border-gray-100 mt-6 pt-6">
+        <div
+          v-for="article in articles"
+          :key="article.title"
+          class="border-t-2 border-gray-100 mt-6 pt-6"
+        >
           <div class="text-xl font-bold">
-            <nuxt-link class="hover:underline" to="#"
+            <nuxt-link class="hover:underline" :to="`/about${article.path}`">{{
+              article.title
+            }}</nuxt-link>
+          </div>
+          <div class="mt-4 ml-4 text-lg text-gray-500">
+            {{ article.description }}
+          </div>
+          <div class="mt-4 ml-4">
+            <nuxt-link
+              class="text-blue-400 text-sm font-bold hover:underline hover:text-blue-600"
+              :to="`/about${article.path}`"
+              >READ MORE</nuxt-link
+            >
+          </div>
+        </div>
+        <!-- <div class="border-t-2 border-gray-100 mt-6 pt-6">
+          <div class="text-xl font-bold">
+            <nuxt-link class="hover:underline" to="/about/problem-statement"
               >Problem Statement & Research</nuxt-link
             >
           </div>
-          <div class="mt-4 ml-4">
+          <div class="mt-4 ml-4 text-lg text-gray-500">
             Reddit is an online forum where uses can create groups known as
             'subreddits' commonly based on a given topic, however, that is not
             strictly necessary. As of October 27, 2020, there are over 1.5
@@ -60,7 +81,7 @@
           <div class="mt-4 ml-4">
             <nuxt-link
               class="text-blue-400 text-sm font-bold hover:underline hover:text-blue-600"
-              to="#"
+              to="/about/problem-statement"
               >READ MORE</nuxt-link
             >
           </div>
@@ -69,7 +90,7 @@
           <div class="text-xl font-bold">
             <nuxt-link class="hover:underline" to="#">Gathering Data</nuxt-link>
           </div>
-          <div class="mt-4 ml-4">
+          <div class="mt-4 ml-4 text-lg text-gray-500">
             As with most machine learning tasks, NLP requires quality training
             and evaluation data. There exist several pre-gathered datasets
             consisting of posts from various subreddits. However, these datasets
@@ -93,7 +114,7 @@
               >Testing / Training / Evaluation</nuxt-link
             >
           </div>
-          <div class="mt-4 ml-4">
+          <div class="mt-4 ml-4 text-lg text-gray-500">
             Once we have data, the next step is trying several different
             approaches and deciding which one to use for the final deployment.
             There are so many different models, and parameters, and things to
@@ -114,7 +135,7 @@
           <div class="text-xl font-bold">
             <nuxt-link class="hover:underline" to="#">Deployment</nuxt-link>
           </div>
-          <div class="mt-4 ml-4">
+          <div class="mt-4 ml-4 text-lg text-gray-500">
             A model saved on my hard drive doesn't offer much value to many
             people. To allow people to use our model, we must deploy it and
             expose some sort of API route. This is often difficult given the
@@ -140,7 +161,7 @@
               >Automating the Process</nuxt-link
             >
           </div>
-          <div class="mt-4 ml-4">
+          <div class="mt-4 ml-4 text-lg text-gray-500">
             As mentioned earlier, the data on Reddit is rapidly changing. As
             such, any good model will need to be trained using the most recent
             data possible. To make the process of gathering data, retraining the
@@ -160,7 +181,7 @@
           <div class="text-xl font-bold">
             <nuxt-link class="hover:underline" to="#">Final Thoughts</nuxt-link>
           </div>
-          <div class="mt-4 ml-4">
+          <div class="mt-4 ml-4 text-lg text-gray-500">
             As with most projects, many lessons were learned. This is a great
             project to hone your NLP and deployment skills. Moving forward, I
             may choose to change some aspects of this project, such as migrating
@@ -175,11 +196,25 @@
               >READ MORE</nuxt-link
             >
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
 </template>
 <script>
-export default {}
+export default {
+  async asyncData({ $content, params, error }) {
+    const articles = await $content()
+      .only(['title', 'description'])
+      .sortBy('date', 'asc')
+      .limit(5)
+      .fetch()
+      .catch(() => {
+        error({ statusCode: 404, message: 'Page not found' })
+      })
+    return {
+      articles,
+    }
+  },
+}
 </script>

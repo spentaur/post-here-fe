@@ -1,3 +1,8 @@
+.nuxt-content img {
+    @apply w-full;
+    @apply rounded-lg;
+}
+
 .fade-enter-active, .fade-leave-active {
   transition: opacity .2s;
 }
@@ -31,3 +36,4 @@
 .in-out-translate-fade-leave-active {
   transform: translateX(-10px);
 }
+
