@@ -1,5 +1,5 @@
 <template>
-  <div id="container" class="bg-white py-16 px-4 overflow-hidden sm:px-6">
+  <div id="container" class="bg-white pt-8 pb-16 px-4 overflow-hidden sm:px-6">
     <div class="relative max-w-2xl mx-auto">
       <div class="text-center">
         <h2
@@ -16,7 +16,7 @@
           <transition name="fade">
             <div
               v-show="!modelLoaded"
-              class="bg-gray-200 absolute rounded-lg shadow-2xl h-full w-full z-10 justify-center items-center flex flex-col"
+              class="bg-gray-200 absolute rounded shadow-2xl h-full w-full z-10 justify-center items-center flex flex-col"
             >
               <button
                 :disabled="loadingModel"
