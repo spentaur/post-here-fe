@@ -28,7 +28,7 @@
                 <template v-else> Load Model </template>
               </button>
               <div class="mt-4 text-gray-500 font-medium text-sm">
-                May take ~1 minute.
+                May take ~1 minute
               </div>
             </div>
           </transition>
