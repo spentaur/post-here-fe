@@ -1,5 +1,32 @@
 <template>
   <div>
+    <nav class="">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div></div>
+          <div class="">
+            <div class="ml-10 flex items-baseline space-x-4">
+              <transition name="in-out-translate-fade" mode="out-in">
+                <div v-if="$route.name === 'index'" key="about">
+                  <nuxt-link
+                    to="/about"
+                    class="px-3 py-2 rounded-md text-sm text-gray-500 font-bold hover:text-gray-900 focus:outline-none"
+                    >About</nuxt-link
+                  >
+                </div>
+                <div v-else key="home">
+                  <nuxt-link
+                    to="/"
+                    class="px-3 py-2 rounded-md text-sm text-gray-500 font-bold hover:text-gray-900 focus:outline-none"
+                    >Home</nuxt-link
+                  >
+                </div>
+              </transition>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
     <Nuxt />
   </div>
 </template>
@@ -22,34 +49,5 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
-}
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
 }
 </style>

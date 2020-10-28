@@ -1,8 +1,5 @@
 <template>
-  <div
-    id="container"
-    class="bg-white py-16 px-4 overflow-hidden sm:px-6 lg:px-8 lg:py-24"
-  >
+  <div id="container" class="bg-white py-16 px-4 overflow-hidden sm:px-6">
     <div class="relative max-w-2xl mx-auto">
       <div class="text-center">
         <h2
@@ -215,12 +212,12 @@ export default {
         this.modelError = 'Error Loading Model'
       }
 
-      this.interval = setInterval(this.loadModelInBackground, 600000)
+      this.interval = setInterval(this.loadModelInBackground, 300000)
     },
     async loadModelInBackground() {
       await this.$axios.get('https://post-here.azurewebsites.net/api/post-here')
       this.timesLoaded += 1
-      if (this.timesLoaded >= 2) {
+      if (this.timesLoaded >= 5) {
         clearInterval(this.interval)
       }
     },

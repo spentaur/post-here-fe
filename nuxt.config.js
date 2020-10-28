@@ -50,4 +50,10 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
+
+  // Page Transitions
+  pageTransition: {
+    name: 'page',
+    mode: 'out-in',
+  },
 }
