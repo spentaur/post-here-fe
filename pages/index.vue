@@ -1,5 +1,5 @@
 <template>
-  <div id="container" class="bg-white pt-8 pb-16 px-4 overflow-hidden sm:px-6">
+  <div id="container" class="bg-white pt-3 pb-16 px-4 overflow-hidden sm:px-6">
     <div class="relative max-w-2xl mx-auto">
       <div class="text-center">
         <h2
