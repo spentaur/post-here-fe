@@ -1,17 +1,12 @@
 <template>
   <div id="container" class="bg-white pt-3 pb-16 px-4 overflow-hidden sm:px-6">
     <div class="relative max-w-2xl mx-auto">
-      <div class="text-center">
+      <div class="text-center mb-4">
         <h2
           class="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
         >
           About
         </h2>
-        <a
-          href="https://spentaur.com"
-          class="text-blue-400 block mt-2 font-bold hover:underline hover:text-blue-600"
-          >Spencer Adams</a
-        >
       </div>
       <div class="p-4 text-lg sm:text-center text-left text-gray-500">
         Post-Here.com uses a DistilBERT classification model and ~1,000,000
@@ -20,6 +15,14 @@
         workers. The model was converted to ONNX and uses Azure Functions and
         onnxruntime to run inferences. Please refer to the following repos and
         blog posts below for more information, and code examples.
+      </div>
+      <div class="p-4 text-lg sm:text-center text-gray-500">
+        By
+        <a
+          href="https://spentaur.com"
+          class="text-blue-400 mt-2 font-bold hover:underline hover:text-blue-600"
+          >Spencer Adams</a
+        >
       </div>
       <div class="mt-6 leading-relaxed border-t-2 border-gray-100 pt-6">
         <span class="font-bold text-xl">Repos</span>

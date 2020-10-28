@@ -16,7 +16,7 @@
           <transition name="fade">
             <div
               v-show="!modelLoaded"
-              class="bg-gray-200 absolute rounded shadow-2xl h-full w-full z-10 justify-center items-center flex flex-col"
+              class="bg-indigo-50 absolute rounded-lg shadow-xl h-full w-full z-10 justify-center items-center flex flex-col"
             >
               <button
                 :disabled="loadingModel"
@@ -86,7 +86,8 @@
                   <button
                     :disabled="loading"
                     type="submit"
-                    class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base leading-6 font-medium rounded-lg text-white bg-orange-500 hover:bg-orange-400 focus:outline-none focus:border-orange-600 focus:shadow-outline-indigo active:bg-orange-600 transition ease-in-out duration-150"
+                    :class="{ 'bg-orange-500': modelLoaded }"
+                    class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base leading-6 font-medium rounded-lg text-white hover:bg-orange-400 focus:outline-none focus:border-orange-600 focus:shadow-outline-indigo active:bg-orange-600 transition ease-in-out duration-150"
                   >
                     <loading v-if="loading" />
                     <template v-else> Submit </template>
