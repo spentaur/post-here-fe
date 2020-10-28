@@ -1,14 +1,16 @@
 ---
-title: Problem Statement & Research
-description: Reddit is an online forum where uses can create groups known as
-            'subreddits' commonly based on a given topic, however, that is not
-            strictly necessary. As of October 27, 2020, there are over 1.5
-            million unique subreddits. When users post to Reddit, they must post
-            to a specific subreddit. They are allowed to share posts from one
-            subreddit to another, a practice known as 'cross-posting'. A useful
-            feature might be suggesting relevant subreddits a user might want to
-            share a specific post with.
-id: 1
+title: Deployment
+description: A model saved on my hard drive doesn't offer much value to many
+            people. To allow people to use our model, we must deploy it and
+            expose some sort of API route. This is often difficult given the
+            requirements of large, modern models. In this particular project,
+            there will not be many, predictable, requests to the model, so
+            having a constant deployment server would be quite ineffective. As
+            such, I will attempt to use Azure Functions, a serverless approach,
+            meaning I will only pay per request. Because of my projected number
+            of users and my financial constraints, I believe the tradeoffs that
+            come from using such an approach will be acceptable.
+id: 3
 ---
 
 Faucibus commodo massa rhoncus, volutpat.
@@ -60,5 +62,3 @@ Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus
 enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor
 praesent donec est. Odio penatibus risus viverra tellus varius sit
 neque erat velit.
-
-

@@ -1,14 +1,12 @@
 ---
-title: Problem Statement & Research
-description: Reddit is an online forum where uses can create groups known as
-            'subreddits' commonly based on a given topic, however, that is not
-            strictly necessary. As of October 27, 2020, there are over 1.5
-            million unique subreddits. When users post to Reddit, they must post
-            to a specific subreddit. They are allowed to share posts from one
-            subreddit to another, a practice known as 'cross-posting'. A useful
-            feature might be suggesting relevant subreddits a user might want to
-            share a specific post with.
-id: 1
+title: Automating the Process
+description: As mentioned earlier, the data on Reddit is rapidly changing. As
+            such, any good model will need to be trained using the most recent
+            data possible. To make the process of gathering data, retraining the
+            model, and updating the deployment easier, I would like to automate
+            the process as much as possible. I will again be using Azure
+            Functions to periodically perform this task.
+id: 4
 ---
 
 Faucibus commodo massa rhoncus, volutpat.
@@ -60,5 +58,3 @@ Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus
 enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor
 praesent donec est. Odio penatibus risus viverra tellus varius sit
 neque erat velit.
-
-

@@ -1,14 +1,12 @@
 ---
-title: Problem Statement & Research
-description: Reddit is an online forum where uses can create groups known as
-            'subreddits' commonly based on a given topic, however, that is not
-            strictly necessary. As of October 27, 2020, there are over 1.5
-            million unique subreddits. When users post to Reddit, they must post
-            to a specific subreddit. They are allowed to share posts from one
-            subreddit to another, a practice known as 'cross-posting'. A useful
-            feature might be suggesting relevant subreddits a user might want to
-            share a specific post with.
-id: 1
+title: Final Thoughts
+description: As with most projects, many lessons were learned. This is a great
+            project to hone your NLP and deployment skills. Moving forward, I
+            may choose to change some aspects of this project, such as migrating
+            to the more popular AWS, or GCP. I will try to keep the model
+            architecture up to date with the current state of the art model
+            types.
+id: 5
 ---
 
 Faucibus commodo massa rhoncus, volutpat.
@@ -60,5 +58,3 @@ Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus
 enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor
 praesent donec est. Odio penatibus risus viverra tellus varius sit
 neque erat velit.
-
-

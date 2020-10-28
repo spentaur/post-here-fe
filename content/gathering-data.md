@@ -1,14 +1,14 @@
 ---
-title: Problem Statement & Research
-description: Reddit is an online forum where uses can create groups known as
-            'subreddits' commonly based on a given topic, however, that is not
-            strictly necessary. As of October 27, 2020, there are over 1.5
-            million unique subreddits. When users post to Reddit, they must post
-            to a specific subreddit. They are allowed to share posts from one
-            subreddit to another, a practice known as 'cross-posting'. A useful
-            feature might be suggesting relevant subreddits a user might want to
-            share a specific post with.
-id: 1
+title: Gathering Data
+description: As with most machine learning tasks, NLP requires quality training
+            and evaluation data. There exist several pre-gathered datasets
+            consisting of posts from various subreddits. However, these datasets
+            can be relatively old, and I would like to use more recent data.
+            Reddit also frequently removes subreddits, and the "tone" of a given
+            subreddit can change as well. As such, I would like to implement a
+            way to easily scrape Reddit and retrain my models at a given time
+            interval.
+id: 2
 ---
 
 Faucibus commodo massa rhoncus, volutpat.
@@ -60,5 +60,3 @@ Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus
 enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor
 praesent donec est. Odio penatibus risus viverra tellus varius sit
 neque erat velit.
-
-
