@@ -1,7 +1,7 @@
 <template>
   <div id="container" class="bg-white pt-3 pb-16 px-4 overflow-hidden sm:px-6">
     <div class="relative max-w-2xl mx-auto">
-      <div class="text-center mb-4">
+      <div class="text-center">
         <h2
           class="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
         >
@@ -16,7 +16,7 @@
         onnxruntime to run inferences. Please refer to the following repos and
         blog posts below for more information, and code examples.
       </div>
-      <div class="p-4 text-lg sm:text-center text-gray-500">
+      <div class="text-lg sm:text-center text-gray-500">
         By
         <a
           href="https://spentaur.com"

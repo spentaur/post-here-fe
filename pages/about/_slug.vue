@@ -22,8 +22,6 @@
 export default {
   async asyncData({ $content, params, error }) {
     const slug = params.slug || 'problem-statement'
-    // eslint-disable-next-line no-console
-    console.log(slug)
     const page = await $content(slug)
       .fetch()
       .catch(() => {
