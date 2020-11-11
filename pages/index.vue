@@ -235,7 +235,7 @@ export default {
       const preds = await this.$axios.$post(
         'https://post-here.azurewebsites.net/api/post-here',
         {
-          text: this.text.split(' ').slice(0, 512).join(' '),
+          text: this.text.split(' ').slice(0, 256).join(' '),
           k: 16,
         }
       )
