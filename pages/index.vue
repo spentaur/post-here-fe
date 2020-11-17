@@ -196,27 +196,34 @@ export default {
     }
   },
   methods: {
-    prime() {
-      return this.$axios.get(
-        'https://post-here.azurewebsites.net/api/post-here'
-      )
-    },
     async loadModel() {
       this.loadingModel = true
-      const res = await this.$axios.get(
-        'https://post-here.azurewebsites.net/api/post-here'
+      this.modelError = ''
+      const res = await this.$axios.post(
+        'https://w0tlzd10m5.execute-api.us-east-1.amazonaws.com/dev/predict',
+        {
+          text: 'test',
+          k: 1,
+        }
       )
-      if (res.data === 'success') {
+      if (res.status === 200) {
         this.loadingModel = false
         this.modelLoaded = true
       } else {
         this.modelError = 'Error Loading Model'
+        this.loadingModel = false
       }
 
       this.interval = setInterval(this.loadModelInBackground, 300000)
     },
     async loadModelInBackground() {
-      await this.$axios.get('https://post-here.azurewebsites.net/api/post-here')
+      await this.$axios.$post(
+        'https://w0tlzd10m5.execute-api.us-east-1.amazonaws.com/dev/predict',
+        {
+          text: 'test',
+          k: 1,
+        }
+      )
       this.timesLoaded += 1
       if (this.timesLoaded >= 5) {
         clearInterval(this.interval)
@@ -233,10 +240,10 @@ export default {
       this.loading = true
       this.preds = []
       const preds = await this.$axios.$post(
-        'https://post-here.azurewebsites.net/api/post-here',
+        'https://w0tlzd10m5.execute-api.us-east-1.amazonaws.com/dev/predict',
         {
           text: this.text.split(' ').slice(0, 256).join(' '),
-          k: 16,
+          k: 24,
         }
       )
       const predsUrls = preds[0].map((pred) =>
