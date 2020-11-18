@@ -200,7 +200,8 @@ export default {
       this.loadingModel = true
       this.modelError = ''
       const res = await this.$axios.post(
-        'https://w0tlzd10m5.execute-api.us-east-1.amazonaws.com/dev/predict'
+        'https://w0tlzd10m5.execute-api.us-east-1.amazonaws.com/dev/predict',
+        {}
       )
       if (res.status === 200) {
         this.loadingModel = false
@@ -214,7 +215,8 @@ export default {
     },
     async loadModelInBackground() {
       await this.$axios.$post(
-        'https://w0tlzd10m5.execute-api.us-east-1.amazonaws.com/dev/predict'
+        'https://w0tlzd10m5.execute-api.us-east-1.amazonaws.com/dev/predict',
+        {}
       )
       this.timesLoaded += 1
       if (this.timesLoaded >= 5) {
