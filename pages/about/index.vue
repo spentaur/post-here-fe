@@ -12,9 +12,10 @@
         Post-Here.com uses a BERT classification model and ~4,000,000 posts
         mined from ~5,000 subreddits. The front end uses Nuxt and tailwind UI
         and is deployed as a static site to Cloudflare using Cloudflare workers.
-        The model was converted to ONNX and uses Azure Functions and onnxruntime
-        to run inferences. Please refer to the following repos and blog posts
-        below for more information, and code examples.
+        The model was converted to ONNX and uses the serverless framework to
+        deploy to AWS and onnxruntime to run inferences. Please refer to the
+        following repos and blog posts below for more information, and code
+        examples.
       </div>
       <div class="text-lg sm:text-center text-gray-500">
         By
