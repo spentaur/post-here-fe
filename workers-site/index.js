@@ -51,7 +51,7 @@ async function handleEvent(event) {
       try {
         const notFoundResponse = await getAssetFromKV(event, {
           mapRequestToAsset: (req) =>
-            new Request(`${new URL(req.url).origin}/404.html`, req),
+            new Request(`${new URL(req.url).origin}/200.html`, req),
         })
 
         return new Response(notFoundResponse.body, {
