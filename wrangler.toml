@@ -1,0 +1,7 @@
+name = "post-here-fe"
+type = "webpack"
+route = "post-here.com/*"
+
+[site]
+bucket = "dist"
+entry-point = "workers-site"
