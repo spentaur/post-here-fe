@@ -236,7 +236,7 @@ export default {
       const preds = await this.$axios.$post(
         'https://w0tlzd10m5.execute-api.us-east-1.amazonaws.com/dev/predict',
         {
-          text: this.text.split(' ').slice(0, 256).join(' '),
+          text: this.text,
           k: 24,
         }
       )
